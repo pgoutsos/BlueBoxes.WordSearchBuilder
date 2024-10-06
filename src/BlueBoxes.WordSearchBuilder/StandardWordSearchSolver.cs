@@ -7,11 +7,19 @@ namespace BlueBoxes.WordSearchBuilder
 {
     public class StandardWordSearchSolver : IWordSearchSolver
     {
+        public bool _useSpanish { get; set; } = false;
+        
         public IWordFormatter WordFormatter { get; set; } = new EnglishWordFormatter();
+        public IWordFormatter WordFormatterSpanish { get; set; } = new SpanishWordFormatter();
 
+        public StandardWordSearchSolver(bool useSpanish = false)
+        {
+            _useSpanish = useSpanish;
+        }
+        
         public IReadOnlyCollection<PlacedWord> SeekWord(char[][] puzzleGrid, string word)
         {
-            var targetWord = WordFormatter.FormatWord(word);
+            var targetWord = (_useSpanish ? WordFormatterSpanish.FormatWord(word) :  WordFormatter.FormatWord(word));
             if (!HasEnoughLetters(puzzleGrid, targetWord))
             {
                 return new List<PlacedWord>();

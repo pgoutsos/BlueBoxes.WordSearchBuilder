@@ -57,6 +57,21 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
                                                 new Reversed(new South()),
                                                 new Reversed(new East()),
                                                 };
+        
+        private static readonly List<WordPlacer> PlacersMoniStyle = new List<WordPlacer>{
+            new SouthEast(),
+            new NorthEast(),
+            new South(),
+            new East(),
+            new SouthEast(),
+            new NorthEast(),
+            new South(),
+            new East(),
+            new SouthEast(),
+            new NorthEast(),
+            new South(),
+            new East()
+        };
 
         internal static List<WordPlacer> GetSet(Difficulty complexityLevel)
         {
@@ -68,6 +83,8 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
                     return PlacersMedium;
                 case Difficulty.Hard:
                     return PlacersHard;
+                case Difficulty.Monistyle:
+                    return PlacersMoniStyle;
                 default:
                     return PlacersHard;
             }

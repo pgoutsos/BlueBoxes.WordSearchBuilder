@@ -7,9 +7,14 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="BlueBoxes.WordSearchBuilder" Version="1.0.1" />
     <PackageReference Include="PdfSharpCore" Version="1.3.56" />
     <PackageReference Include="PuppeteerSharp" Version="9.1.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="BlueBoxes.WordSearchBuilder">
+      <HintPath>..\..\src\BlueBoxes.WordSearchBuilder\bin\Release\net8.0\BlueBoxes.WordSearchBuilder.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

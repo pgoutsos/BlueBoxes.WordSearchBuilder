@@ -8,7 +8,10 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
     {
         public abstract PlacedWord TryPlaceWord(string word, char[][] grid);
         public abstract Direction Direction { get; }
+        
+        public bool useSpanish { get; set; } = false;
         public IWordFormatter WordFormatter { get; set; } = new EnglishWordFormatter();
+        public IWordFormatter WordFormatterSpanish { get; set; } = new SpanishWordFormatter();
 
         public static readonly char NullChar = '\0';
 
@@ -47,7 +50,7 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
             var placeFound = false;
             var startPos = new GridCell();
 
-            var wordToPlace = WordFormatter.FormatWord(word);
+            var wordToPlace = (useSpanish ? WordFormatterSpanish.FormatWord(word) :  WordFormatter.FormatWord(word));
 
             //Find a Valid location
             foreach (var currentCol in xRange)

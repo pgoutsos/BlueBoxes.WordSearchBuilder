@@ -20,20 +20,36 @@ public class WordSearchBuilder
     public Difficulty DifficultyLevel { get; }
     public string? Notes { get; set; }
     public string Title { get; private set; } = "";
+    
+    public bool UseSpanish { get; private set; }
 
     private List<WordPlacer> WordPlacers { get; set; }
 
-    public ISpaceFiller SpaceFiller { get; private set; } = new DefaultEnglishSpaceFiller();
+    public ISpaceFiller SpaceFiller { get; private set; }
 
     /// <summary>
     /// Create a new WordSearchBuilder with a default set of Medium Difficulty WordPlacers
     /// </summary>
     /// <param name="width">Grid Width</param>
     /// <param name="height">Grid Height</param>
-    public WordSearchBuilder(int width, int height)
+    /// <param name="useSpanish"></param>
+    public WordSearchBuilder(int width, int height, bool useSpanish = false)
     {
+        
         Grid = GridExtensions.Initialize(width, height, WordPlacer.NullChar);
         WordPlacers = PlacerSets.GetSet(Difficulty.Medium);
+        foreach (var itm in WordPlacers)
+        {
+            itm.useSpanish = useSpanish;
+        }
+        if (useSpanish)
+        {
+            SpaceFiller = new DefaultSpanishSpaceFiller();
+        }
+        else
+        {
+            SpaceFiller = new DefaultEnglishSpaceFiller();
+        }
     }
 
     /// <summary>
@@ -46,6 +62,26 @@ public class WordSearchBuilder
         WordPlacers = PlacerSets.GetSet(difficulty);
         return this;
     }
+    
+    public WordSearchBuilder WithSpanishLanguage(bool useSpanish)
+    {
+        UseSpanish = useSpanish;
+        
+        foreach (var itm in WordPlacers)
+        {
+            itm.useSpanish = useSpanish;
+        }
+        if (useSpanish)
+        {
+            SpaceFiller = new DefaultSpanishSpaceFiller();
+        }
+        else
+        {
+            SpaceFiller = new DefaultEnglishSpaceFiller();
+        }
+        return this;
+    }
+
 
     /// <summary>
     /// Sets the Title of the WordSearch Puzzle
@@ -125,8 +161,9 @@ public class WordSearchBuilder
             Difficulty = DifficultyLevel.ToString(),
             Solution = Solution,
             Copyright = DateTime.Now.Year.ToString(),
-            Publisher = "BlueBox Puzzles",
-            Puzzle = Grid
+            Publisher = "Monica Goutsos Puzzles",
+            Puzzle = Grid,
+            Spanish = UseSpanish
         };
 
         return iPuz;

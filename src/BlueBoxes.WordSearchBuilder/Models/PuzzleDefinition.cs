@@ -3,6 +3,7 @@
     public class PuzzleDefinition
     {
         public string? Copyright { get; set; }
+        public bool Spanish { get; set; }
         public string? Publisher { get; set; }
         public string? Uniqueid { get; set; }
         public DateTime? Date { get; set; }

@@ -29,6 +29,9 @@ public class WebModel : PageModel
                 case Difficulty.Hard:
                     PuzzleLayout = new HardPuzzleLayout();
                     break;
+                case Difficulty.Monistyle:
+                    PuzzleLayout = new MoniStylePuzzleLayout();
+                    break;                
                 default:
                     PuzzleLayout = new EasyPuzzleLayout();
                     break;

@@ -6,7 +6,7 @@ namespace BlueBoxes.WordSearchBuilder.SpaceFillers
     /// <summary>
     /// Fills the grid with letters where it finds empty cells
     /// </summary>
-    public class DefaultEnglishSpaceFiller : ISpaceFiller
+    public class DefaultSpanishSpaceFiller : ISpaceFiller
     {
         public virtual char[][] FillSpacesInGrid(char[][] grid)
         {
@@ -29,22 +29,13 @@ namespace BlueBoxes.WordSearchBuilder.SpaceFillers
         /// https://en.wikipedia.org/wiki/Letter_frequency
         /// </summary>
         /// <returns>Random Letter</returns>
-        protected char GetWeightedRandomLetter(bool includeSpanish = false)
+        protected char GetWeightedRandomLetter()
         {
             var rnd = new Random();
-            var lettersString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            if (includeSpanish)
-            {
-                lettersString += "Ñ";
-            }            
+            var lettersString = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑ";
             var letters = lettersString.ToCharArray();
 
-            var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2 };
-            
-            if (includeSpanish)
-            {
-                weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 7 };
-            }
+            var weights = new int[] { 8, 2, 3, 4, 13, 2, 2, 6, 7, 1, 1, 4, 2, 7, 8, 2, 1, 6, 6, 9, 3, 1, 2, 1, 2, 7 };
             
             var total = weights.Sum();
 

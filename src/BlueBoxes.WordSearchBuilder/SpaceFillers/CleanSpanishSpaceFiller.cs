@@ -6,13 +6,13 @@ namespace BlueBoxes.WordSearchBuilder.SpaceFillers;
 /// <summary>
 /// Fills in spaces try it's best to prevent 
 /// </summary>
-public class CleanEnglishSpaceFiller : DefaultEnglishSpaceFiller
+public class CleanSpanishSpaceFiller : DefaultSpanishSpaceFiller
 {
     public IEnumerable<string> ProhibitedWords { get; } = Array.Empty<string>();
 
-    public StandardWordSearchSolver WordSearchSolver { get; } = new StandardWordSearchSolver(false);
+    public StandardWordSearchSolver WordSearchSolver { get; } = new StandardWordSearchSolver(true);
 
-    public CleanEnglishSpaceFiller(IEnumerable<string> prohibitedWords)
+    public CleanSpanishSpaceFiller(IEnumerable<string> prohibitedWords)
     {
         ProhibitedWords = prohibitedWords;
     }

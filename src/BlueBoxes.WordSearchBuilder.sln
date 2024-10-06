@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueBoxes.WordSearchBuilder
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueBoxes.WordSearchBuilder.Tests", "BlueBoxes.WordSearchBuilder.Tests\BlueBoxes.WordSearchBuilder.Tests.csproj", "{7AD6AB42-236D-40AA-986E-56293E18C92D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTester", "ConsoleTester\ConsoleTester.csproj", "{C34F41DB-33CC-4D59-BDEC-C1E1DBB20D7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7AD6AB42-236D-40AA-986E-56293E18C92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD6AB42-236D-40AA-986E-56293E18C92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD6AB42-236D-40AA-986E-56293E18C92D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C34F41DB-33CC-4D59-BDEC-C1E1DBB20D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C34F41DB-33CC-4D59-BDEC-C1E1DBB20D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C34F41DB-33CC-4D59-BDEC-C1E1DBB20D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C34F41DB-33CC-4D59-BDEC-C1E1DBB20D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

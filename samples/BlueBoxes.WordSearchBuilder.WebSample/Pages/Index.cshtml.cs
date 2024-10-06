@@ -15,11 +15,11 @@ public class NewModel : PageModel
     [BindProperty()]
     public int AnswerCellSize { get; set; } = 20;
     [BindProperty()]
-    public int GridSize { get; set; } = 15;
+    public int GridSize { get; set; } = 18;
     [BindProperty()]
     public string InputWords { get; set; } = $"Red,Green,Blue,Pink,Orange";
     [BindProperty()]
-    public Difficulty GridLevel { get; set; } = Difficulty.Easy;
+    public Difficulty GridLevel { get; set; } = Difficulty.Monistyle;
 
     public PuzzleDefinition? PuzzleDef { get; set; }
 
@@ -53,6 +53,9 @@ public class NewModel : PageModel
             case Difficulty.Hard:
                 puzzleLayout = new HardPuzzleLayout();
                 break;
+            case Difficulty.Monistyle:
+                puzzleLayout = new MoniStylePuzzleLayout();
+                break;            
         }
 
         GridSize = puzzleLayout.GridSize;

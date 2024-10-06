@@ -73,3 +73,16 @@ public class HardPuzzleLayout : PuzzleLayout
         TitleSize = 50;
     }
 }
+
+public class MoniStylePuzzleLayout : PuzzleLayout
+{
+    public MoniStylePuzzleLayout()
+    {
+        GridSize = 18;
+        PuzzleCellSize = 30;
+        PuzzleFontSize = 17;
+        SolutionCellSize = 12;
+        SolutionFontSize = 10;
+        TitleSize = 50;
+    }
+}

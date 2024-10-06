@@ -9,6 +9,9 @@
        Build, solve and export word search puzzles in the iPuz json format.
     </Description>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Company>Perry Goutsos</Company>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
