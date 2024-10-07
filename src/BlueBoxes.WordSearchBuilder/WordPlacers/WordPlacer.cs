@@ -17,6 +17,7 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
 
         public GridCell GetActualGridCell(GridCell startCell, int offset)
         {
+
             var col = startCell.Col + Direction.ToColDelta() * offset;
             var row = startCell.Row + Direction.ToRowDelta() * offset;
             return new GridCell(col, row);
@@ -24,8 +25,19 @@ namespace BlueBoxes.WordSearchBuilder.WordPlacers
 
         public char? GetCellValue(GridCell startCell, int offset, char[][] grid)
         {
+            Console.WriteLine($"offset {offset}");
+            Console.WriteLine($"col {startCell.Col} row {startCell.Row}");
             var cell = GetActualGridCell(startCell, offset);
-            return grid[cell.Col][cell.Row];
+            Console.WriteLine($"result col {cell.Col} row {cell.Row}");
+
+            try
+            {
+                return grid[cell.Col][cell.Row];
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public void SetCellValue(GridCell startCell, int offset, char[][] grid, char value)

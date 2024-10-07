@@ -9,7 +9,7 @@ public class NorthEastTests
     public void WhenPlaceWordNorthEastSuccessfully()
     {
         var placer = new NorthEast();
-        var wordSearch = new WordSearchBuilder(4, 4);
+        var wordSearch = new WordSearchBuilder(4, 4, false, "", false, false);
         var result = placer.TryPlaceWord("TEST", wordSearch.Grid);
         result.Should().NotBeNull();
         result.Should().NotBe(PlacedWord.Empty);
@@ -27,7 +27,7 @@ public class NorthEastTests
     public void WhenPlaceWordInPopulatedGridSuccessfully()
     {
         var placer = new NorthEast();
-        var wordSearch = new WordSearchBuilder(4, 4);
+        var wordSearch = new WordSearchBuilder(4, 4, false, "", false, false);
         wordSearch.Grid[1][0] = 'P';
         wordSearch.Grid[1][1] = 'A';
         wordSearch.Grid[1][2] = 'E';
@@ -49,7 +49,7 @@ public class NorthEastTests
     public void WhenPlaceWordInSmallGridFail()
     {
         var placer = new NorthEast();
-        var wordSearch = new WordSearchBuilder(3, 3);
+        var wordSearch = new WordSearchBuilder(3, 3, false, "", false, false);
         var result = placer.TryPlaceWord("TEST", wordSearch.Grid);
         result.Should().Be(PlacedWord.Empty);
     }
@@ -58,7 +58,7 @@ public class NorthEastTests
     public void WhenPlaceWordInPopulatedGridFail()
     {
         var placer = new NorthEast();
-        var wordSearch = new WordSearchBuilder(4, 4);
+        var wordSearch = new WordSearchBuilder(4, 4, false, "", false, false);
         wordSearch.Grid[0][0] = 'T';
         wordSearch.Grid[0][1] = 'E';
         wordSearch.Grid[0][2] = 'S';

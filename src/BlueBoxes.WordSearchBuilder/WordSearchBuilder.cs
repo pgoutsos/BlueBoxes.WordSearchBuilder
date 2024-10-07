@@ -27,13 +27,21 @@ public class WordSearchBuilder
 
     public ISpaceFiller SpaceFiller { get; private set; }
 
+    public string CellSize { get; set; } = "";
+
+    public bool SolutionTable { get; set; } = false;
+    public bool NonSolutionTable { get; set; } = false;
+
     /// <summary>
     /// Create a new WordSearchBuilder with a default set of Medium Difficulty WordPlacers
     /// </summary>
     /// <param name="width">Grid Width</param>
     /// <param name="height">Grid Height</param>
     /// <param name="useSpanish"></param>
-    public WordSearchBuilder(int width, int height, bool useSpanish = false)
+    /// <param name="cellSize"></param>
+    /// <param name="solutionTable"></param>
+    /// <param name="nonSolutionTable"></param>
+    public WordSearchBuilder(int width, int height, bool useSpanish, string cellSize, bool solutionTable, bool nonSolutionTable)
     {
         
         Grid = GridExtensions.Initialize(width, height, WordPlacer.NullChar);
@@ -50,6 +58,10 @@ public class WordSearchBuilder
         {
             SpaceFiller = new DefaultEnglishSpaceFiller();
         }
+        
+        CellSize = cellSize;
+        SolutionTable = solutionTable;
+        NonSolutionTable = nonSolutionTable;
     }
 
     /// <summary>
@@ -163,7 +175,10 @@ public class WordSearchBuilder
             Copyright = DateTime.Now.Year.ToString(),
             Publisher = "Monica Goutsos Puzzles",
             Puzzle = Grid,
-            Spanish = UseSpanish
+            Spanish = UseSpanish,
+            CellSize = CellSize,
+            SolutionTable = SolutionTable,
+            NonSolutionTable = NonSolutionTable
         };
 
         return iPuz;
